@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EmployManagement.View_Model.RegisterViewModel
+<h1>Register</h1>
+<div asp-validation-summary="All" class="text-danger col-md-4"> 
+
+</div>
+
+<form action="RegisterUsers" class="col-md-4">
+    <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" class="form-control" placeholder="Enter Email Address"
+               asp-for="Email" />
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="Enter Your Password"
+               asp-for="Password" />
+
+    </div>
+
+    <div class="form-group">
+        <label>Confirm Password</label>
+        <input type="password" class="form-control" placeholder="Confirm Password"
+               asp-for="ConfirmPassword" />
+
+    </div>
+    <button>
+        Submit
+    </button>
+
+</form>
+</div>

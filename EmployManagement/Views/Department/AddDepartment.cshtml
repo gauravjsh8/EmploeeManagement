@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EmployManagement.Models.Department
+
+<form action="AddDepartmentDetails">
+   
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" class="form-control" placeholder="Enter Name"
+               asp-for="Name" />
+               </div>
+    <div class="form-group">
+        <label>Branch</label>
+        <input type="text" class="form-control" placeholder="Enter Your Department Branch"
+               asp-for="Branch" />
+    </div>
+    <div class="form-group">
+        <label>Total Employee</label>
+        <input type="number" class="form-control" placeholder="Enter Total Employee"
+               asp-for="TotalEmployee"/>
+     </div>
+     <button type="submit" class="btn btn-primary">Submit</button>
+     </form>

@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<EmployManagement.Models.Department>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Branch</th>
+            <th>Total Employee</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (EmployManagement.Models.Department item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Branch</td>
+                <td>@item.TotalEmployee</td>
+                <td><a href="GetDepartmentById/@item.Id">View</a></td>
+                <td><a href="RemoveDepartmentById/@item.Id">Delete</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>

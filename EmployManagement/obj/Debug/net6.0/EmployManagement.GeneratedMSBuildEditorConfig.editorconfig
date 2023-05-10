@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Dell\Desktop\Training\EmployManagement\EmployManagement
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Dell/Desktop/Training/EmployManagement/EmployManagement/Views/Attendance/Attendance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR0ZW5kYW5jZVxBdHRlbmRhbmNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dell/Desktop/Training/EmployManagement/EmployManagement/Views/Attendance/LateInLateOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXR0ZW5kYW5jZVxMYXRlSW5MYXRlT3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Dell/Desktop/Training/EmployManagement/EmployManagement/Views/Department/AddDepartment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxBZGREZXBhcnRtZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -26,6 +34,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Dell/Desktop/Training/EmployManagement/EmployManagement/Views/Department/GetDepartmentById.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudFxHZXREZXBhcnRtZW50QnlJZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dell/Desktop/Training/EmployManagement/EmployManagement/Views/EmployeeShift/EmployeeShift.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVTaGlmdFxFbXBsb3llZVNoaWZ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dell/Desktop/Training/EmployManagement/EmployManagement/Views/EmployeeShift/GetAllEmployeeShift.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVTaGlmdFxHZXRBbGxFbXBsb3llZVNoaWZ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dell/Desktop/Training/EmployManagement/EmployManagement/Views/EmployeeShift/GetEmployeeShiftById.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVTaGlmdFxHZXRFbXBsb3llZVNoaWZ0QnlJZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Dell/Desktop/Training/EmployManagement/EmployManagement/Views/Home/AddEmployee.cshtml]

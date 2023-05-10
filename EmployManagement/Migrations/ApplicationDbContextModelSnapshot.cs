@@ -72,6 +72,7 @@ namespace EmployManagement.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("IdentityUserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
@@ -91,6 +92,75 @@ namespace EmployManagement.Migrations
                     b.HasIndex("IdentityUserId");
 
                     b.ToTable("Employee");
+                });
+
+            modelBuilder.Entity("EmployManagement.Models.EmployeeDepartment", b =>
+                {
+                    b.Property<string>("DepartmentName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("EmployeeDepartment");
+                });
+
+            modelBuilder.Entity("EmployManagement.Models.EmployeeShift", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CheckInTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CheckOutTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalDuration")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("EmployeeShift");
+                });
+
+            modelBuilder.Entity("EmployManagement.Models.EmployeeShiftLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CheckInTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CheckOutTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployeeShiftId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("EmployeeShiftId");
+
+                    b.ToTable("EmployeeShiftLog");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -301,11 +371,43 @@ namespace EmployManagement.Migrations
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
                         .WithMany()
-                        .HasForeignKey("IdentityUserId");
+                        .HasForeignKey("IdentityUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Department");
 
                     b.Navigation("IdentityUser");
+                });
+
+            modelBuilder.Entity("EmployManagement.Models.EmployeeShift", b =>
+                {
+                    b.HasOne("EmployManagement.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("EmployManagement.Models.EmployeeShiftLog", b =>
+                {
+                    b.HasOne("EmployManagement.Models.Employee", "Employee")
+                        .WithMany("EmployeeShiftLogs")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EmployManagement.Models.EmployeeShift", "EmployeeShift")
+                        .WithMany("EmployeeShiftLogs")
+                        .HasForeignKey("EmployeeShiftId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("EmployeeShift");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -362,6 +464,16 @@ namespace EmployManagement.Migrations
             modelBuilder.Entity("EmployManagement.Models.Department", b =>
                 {
                     b.Navigation("Employees");
+                });
+
+            modelBuilder.Entity("EmployManagement.Models.Employee", b =>
+                {
+                    b.Navigation("EmployeeShiftLogs");
+                });
+
+            modelBuilder.Entity("EmployManagement.Models.EmployeeShift", b =>
+                {
+                    b.Navigation("EmployeeShiftLogs");
                 });
 #pragma warning restore 612, 618
         }

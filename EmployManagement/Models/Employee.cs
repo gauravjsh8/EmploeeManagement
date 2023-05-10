@@ -20,5 +20,6 @@ namespace EmployManagement.Models
         public string IdentityUserId { get; set; }  
        
         public IdentityUser IdentityUser { get; set; }  
+        public List<EmployeeShiftLog> EmployeeShiftLogs { get; set; }   
     }
 }

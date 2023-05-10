@@ -1,0 +1,94 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model EmployManagement.Models.EmployeeShift
+
+<form asp-controller="EmployeeShift" asp-action="UpdateEmployeeShiftById">
+    <div class="form">
+        <label>Id</label>
+        <input type="number" readonly class="form-control" placeholder="Enter Your Employee Id No."
+               asp-for="Id" />
+     
+
+        
+        <div class="form-group">
+            <label>Check-In Time</label>
+            <input id="start-time" type="time" class="form-control" placeholder="Enter Check-In Time"
+                   asp-for="CheckInTime" />
+        </div>
+        <div class="form-group">
+            <label>Check-Out Time</label>
+            <input id="end-time" type="time" class="form-control" placeholder="Enter Check-Out Time"
+                   asp-for="CheckOutTime" />
+        </div>
+        <div class="form-group">
+            <label>Total Duration</label>
+            <input id="total-time" type="number" class="form-control" placeholder="Enter Total Duration"
+                   asp-for="TotalDuration" />
+        </div>
+        <div class="form">
+            <label>Employee</label>
+            <select class="form-control" asp-for="EmployeeId">
+
+                @foreach (var item in ViewBag.EmployeeList)
+                {
+                    <option value="@item.Id">
+                        @item.Name
+                    </option>
+                }
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <script>
+    //getting values by Id
+    var startTime= document.getElementById("start-time");
+    var endTime= document.getElementById("end-time");
+    var totalTime=document.getElementById("total-time");
+    //add event for the change of start and end time
+
+    //everytime when start time and end time changes,it triggers the event which calls the onTime Update function
+     startTime.addEventListener('input',onTimeUpdate); //function ; input means type
+    endTime.addEventListener('input', onTimeUpdate);
+    function onTimeUpdate()
+
+    {
+        debugger;
+        //gets value from start time
+       var startTimeValue= startTime.value;
+       var endTimeValue=endTime.value;
+       if(startTimeValue && endTimeValue)
+       {
+           //separate the time with the help of split that breaks the time into parts with reference to :(Colon)
+           // for eg: it time is 08:30 then 0 index will  be for 08 and 1 index will be for 30
+
+           var startTimeSplit=startTimeValue.split(":");
+           var endTimeSplit=endTimeValue.split(":");
+           //converting hrs into mins
+           var startTimeMins= parseInt(startTimeSplit[0])*60 + parseInt(startTimeSplit[1]);
+            var endTimeMins = parseInt(endTimeSplit[0]) * 60 + parseInt(endTimeSplit[1]);
+            var minuteDifference=endTimeMins-startTimeMins;
+            totalTime.value=minuteDifference/60
+            // converting minute difference to hrs and assigning to totaltime
+       }
+       else
+       {
+           // if any of the time doesnot have any value, put total time as empty
+           totalTime.value='';
+
+       }
+
+    }
+
+</script>
+
+
+
+     
+
+
+
+

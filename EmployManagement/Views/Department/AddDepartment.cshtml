@@ -4,6 +4,43 @@
 @{
 }
 @model EmployManagement.Models.Department
+<style>
+  body {
+        background-image: url("https://static.vecteezy.com/system/resources/previews/001/984/861/original/abstract-blue-geometric-circles-overlapping-background-with-light-blue-free-vector.jpg");
+    }
+
+    .button {
+        width: 37%;
+        padding: 10px;
+        margin: 10px -40px;
+        background-color: blue;
+        color: white;
+    }
+
+
+
+
+
+    input[type=text] {
+        width: 30%;
+        background-color: hotpink;
+        color: white;
+        box-sizing: border-box;
+        border: 2px solid green;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    input[type=number] {
+        width: 30%;
+        background-color: hotpink;
+        color: white;
+        box-sizing: border-box;
+        border: 2px solid green;
+        border-radius: 4px;
+        text-align: center;
+    }
+    </style>
 
 <form action="AddDepartmentDetails">
    
@@ -22,5 +59,5 @@
         <input type="number" class="form-control" placeholder="Enter Total Employee"
                asp-for="TotalEmployee"/>
      </div>
-     <button type="submit" class="btn btn-primary">Submit</button>
+    <button class="button">Submit</button>
      </form>

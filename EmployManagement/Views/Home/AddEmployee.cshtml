@@ -1,4 +1,70 @@
 ﻿@model EmployManagement.Models.Employee
+<style>
+    body {
+        background-image: url("https://static.vecteezy.com/system/resources/previews/001/984/861/original/abstract-blue-geometric-circles-overlapping-background-with-light-blue-free-vector.jpg");
+    }
+
+    .button {
+        width: 37%;
+        padding: 10px;
+        margin: 10px -40px;
+        background-color: blue;
+        color: white;
+    }
+
+
+
+
+
+    input[type=text] {
+        width: 30%;
+        background-color: hotpink;
+        color: white;
+        box-sizing: border-box;
+        border: 2px solid green;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    input[type=number] {
+        width: 30%;
+        background-color: hotpink;
+        color: white;
+        box-sizing: border-box;
+        border: 2px solid green;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    input[type=date]{
+        width: 30%;
+        background-color: hotpink;
+        color: white;
+        box-sizing: border-box;
+        border: 2px solid green;
+        border-radius: 4px;
+        text-align: center;
+    }
+
+    input[type=email] {
+        width: 30%;
+        background-color: hotpink;
+        color: white;
+        box-sizing: border-box;
+        border: 2px solid green;
+        border-radius: 4px;
+        text-align: center;
+    }
+     
+    
+    
+    label {
+        color: blue;
+        font-family: cursive;
+        text-align: center;
+    }
+</style>
+<body>
 <form action="AddEmployeeDetails">
     <div class="form">
         <label>Employee Id</label>
@@ -35,9 +101,13 @@
         <label>Email</label>
         <input type="email" class="form-control" placeholder="Enter Your Email" asp-for="Email" />
     </div>
-    <div class="form">
+        <div class="form" >
         <label>Department</label>
-        <select class="form-control" asp-for="DepartmentId">
+            <select class="form-control" style="background-color:hotpink;width:30% ; color: white;
+                    box-sizing: border-box;
+                    border: 2px solid green;
+                    border-radius: 4px;
+                    text-align: center;" asp-for="DepartmentId">
             <option>Select Department</option>
 
             @foreach(var item in ViewBag.DepartmentList)
@@ -49,9 +119,13 @@
             </select>
             @*updated*@
     </div>
-    <div class="form">
-        <label>Select User</label>
-        <select class="form-control" asp-for="IdentityUserId">
+        <div class="form" >
+            <label >Select User</label>
+            <select class="form-control" style="background-color:hotpink;width:30% ; color: white;
+                    box-sizing: border-box;
+                    border: 2px solid green;
+                    border-radius: 4px;
+                    text-align: center;" asp-for="IdentityUserId">
             <option>Select User</option>
 
             @foreach(var item in ViewBag.UserList)
@@ -60,10 +134,10 @@
                     @item.Email
                     </option>
             }
-            </select>
+        </select>
+        </div>
 
-    <button>
-        Submit
-    </button>
+            <button class="button">Submit</button>
 
 </form>
+</body>

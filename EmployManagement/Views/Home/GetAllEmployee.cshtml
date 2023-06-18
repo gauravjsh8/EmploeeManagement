@@ -5,6 +5,51 @@
     int i = 0;
 }
 @model List<EmployManagement.Models.Employee>
+<style>
+
+    .button {
+        background-color: green;
+        color: white;
+        border-color: green;
+        margin-bottom: 100px;
+        margin-top: 100px;
+        margin-left: 55%;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+    }
+
+    .button1 {
+        background-color: red;
+        color: white;
+        border-color: red;
+        margin-bottom: 100px;
+        margin-top: 100px;
+        margin-left: 55%;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
+    }
+
+    thead {
+        background-color: blue;
+        color: white;
+        font-weight: bold
+    }
+
+    table {
+        border-color: blue;
+        text-align: center;
+    }
+
+    #head {
+        text-align: center;
+        font-weight: bold;
+    }
+    
+       
+    
+</style>
 
     <table class="table">
        
@@ -32,17 +77,17 @@
             i++;
            
             <tr>
-            <td>@i</td>
-            <td>@item.EmployeeId</td>
-            <td>@item.Name</td>
-            <td>@item.Address</td>
-            <td>@item.PhoneNumber</td>
-            <td>@item.Birthdate </td>
-            <td>@item.Email</td>
-            <td>@item.Salary</td>
-            <td>@item.Department.Name</td>
-            <td><a href="GetEmployeeById/@item.Id">View</a></td>
-            <td><a href="RemoveEmployeeById/@item.Id">Delete</a></td>
+                <td style="background-color:pink">@i</td>
+                <td style="background-color:pink">@item.EmployeeId</td>
+                <td style="background-color:pink">@item.Name</td>
+                <td style="background-color:pink">@item.Address</td>
+                <td style="background-color:pink">@item.PhoneNumber</td>
+                <td style="background-color:pink">@item.Birthdate </td>
+                <td style="background-color:pink">@item.Email</td>
+                <td style="background-color:pink">@item.Salary</td>
+                <td style="background-color:pink">@item.Department.Name</td>
+                <td><a button class="button1" href="GetEmployeeById/@item.Id">View</a></td>
+                <td><a button class="button" href="RemoveEmployeeById/@item.Id">Delete</a></td>
                      
        </tr>
         

@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Employee Attendance Date</th>
+            <th>Check In Time</th>
+            <th>Check Out Time</th>
+
+            <th>Employee Shift</th>
+            <th>Employee Status</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @if (ViewBag.EmployeeShiftLogs != null)
+        {
+            foreach (var item in ViewBag.EmployeeShiftLogs)
+            {
+                <tr>
+                    <td>@item.EmployeeName</td>
+                    <td>@item.AttendanceDate</td>
+                    <td>@item.CheckInTime</td>
+                    <td>@item.CheckOutTime</td>
+                    <td>@item.Shift</td>
+                    <td>@item.Status</td>
+                </tr>
+            }
+        }
+
+
+
+    </tbody>
+</table>

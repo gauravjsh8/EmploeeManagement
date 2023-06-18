@@ -1,8 +1,11 @@
-﻿using EmployManagement.Models;
+﻿
+using EmployManagement.Models;
 using EmployManagement.NewFolder;
 using EmployManagement.View_Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 
 namespace EmployManagement.Controllers
@@ -71,10 +74,14 @@ namespace EmployManagement.Controllers
             }
             return View();
         }
+
+       
+
+
         public async Task<IActionResult> LateInLateOut()
         {
             var logedInUser = await _userManager.GetUserAsync(User);
-           
+
             ViewBag.EmployeeShiftLogs = new List<LateInLateOut>();
             if (logedInUser != null)
             {
@@ -94,10 +101,10 @@ namespace EmployManagement.Controllers
                             AttendanceDate = x.CheckInTime.HasValue ? x.CheckInTime.Value.ToString("MM/dd/yyyy") : null,
                             Shift = employeeShift.CheckInTime.HasValue && employeeShift.CheckOutTime.HasValue ?
                             employeeShift.CheckInTime.Value.ToString("hh:mm tt") + "-" + employeeShift.CheckOutTime.Value.ToString("hh:mm tt") : null,
-                            Status = x.CheckInTime.HasValue && x.CheckOutTime.HasValue?( x.CheckInTime.Value > employeeShift.CheckInTime.Value.AddMinutes(15)
+                            Status = x.CheckInTime.HasValue && x.CheckOutTime.HasValue ? (x.CheckInTime.Value > employeeShift.CheckInTime.Value.AddMinutes(15)
                             && x.CheckOutTime.Value < employeeShift.CheckOutTime.Value.AddMinutes(-15) ?
-                            "Late In Early Out" : x.CheckInTime.Value > employeeShift.CheckInTime.Value.AddMinutes(15)? "Late In":
-                            x.CheckOutTime.Value < employeeShift.CheckOutTime.Value.AddMinutes(-15)? "Early Out":"On Time") :"No Attendance"
+                            "Late In Early Out" : x.CheckInTime.Value > employeeShift.CheckInTime.Value.AddMinutes(15) ? "Late In" :
+                            x.CheckOutTime.Value < employeeShift.CheckOutTime.Value.AddMinutes(-15) ? "Early Out" : "On Time") : "No Attendance"
                         })
                         .ToList();
                 }
@@ -146,5 +153,8 @@ namespace EmployManagement.Controllers
         }
     }
 }
-  
+
+
+
+
 

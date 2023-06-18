@@ -89,6 +89,7 @@ namespace EmployManagement.Controllers
         public IActionResult GetEmployeeById(int id)
         {
             ViewBag.DepartmentList = _applicationDbContext.Department.ToList();
+            ViewBag.UserList = _applicationDbContext.Users.ToList();
             Employee employee = _applicationDbContext.Employee.
                 Include(x => x.Department).
                 FirstOrDefault(x => x.Id == id);
